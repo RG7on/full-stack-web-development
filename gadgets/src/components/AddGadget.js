@@ -22,36 +22,41 @@ function AddGadget() {
   };
 
   return (
-    <div className="container w-50">
-      <h3>Product Registration</h3>
-      <form onSubmit={handleSubmit}>
-        <div className="m-1 p-1 bg-light">
-          <label htmlFor="pname">Name</label>
-          <input
-            id="pname"
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </div>
-
-        <div className="m-1 p-1 bg-light">
-          <label htmlFor="pprice">Price</label>
-          <input
-            id="pprice"
-            type="number"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-          />
-        </div>
-        <div className="m-1 p-1 bg-light">
-          <button type="submit">Add Gadget</button>
-        </div>
-      </form>
-      <div>
-        <GadgetList items={items} />
-      </div>
+    <div className="container w-50 mt-5">
+  <h3 className="text-center mb-4">Product Registration</h3>
+  <form onSubmit={handleSubmit} className="bg-white p-4 rounded shadow">
+    <div className="mb-3">
+      <label htmlFor="pname" className="form-label">Name</label>
+      <input
+        id="pname"
+        type="text"
+        className="form-control"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
     </div>
+
+    <div className="mb-3">
+      <label htmlFor="pprice" className="form-label">Price</label>
+      <input
+        id="pprice"
+        type="number"
+        className="form-control"
+        value={price}
+        onChange={(e) => setPrice(e.target.value)}
+      />
+    </div>
+    <div className="text-center">
+      <button type="submit" className="btn btn-primary">Add Gadget</button>
+    </div>
+  </form>
+
+  <br></br><br></br>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+     <GadgetList items={items} />
+  </div>
+</div>
+
   );
 }
 
