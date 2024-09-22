@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function GadgetList() { 
+export default function GadgetList({items }) { 
 
   return (
       <div style={{width:"50%"}}>
@@ -13,7 +13,10 @@ export default function GadgetList() {
           </tr>
         </thead>
               <tbody>
-                {
+          {
+            items.map((item, i) => {
+              return (<tr><td>{item.name}</td><td>{item.price }</td></tr>)
+            })
    
                 }                
         </tbody>
