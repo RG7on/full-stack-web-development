@@ -19,7 +19,7 @@ export default function GadgetList({items }) {
         {items.map((item, i) => (
           <tr key={i}>
             <td>{item.name}</td>
-            <td>${item.price.toFixed(2)}</td>
+            <td>{item.price.toFixed(2)}</td>
           </tr>
         ))}
       </tbody>
