@@ -3,7 +3,7 @@ import React from 'react'
 export default function GadgetList({items }) { 
 
   return (
-      <div style={{width:"50%"}}>
+      <div style={{width:"100%"}}>
           <h3>List of Electronic Gadgets</h3>
       <div className="mt-5">
   <h4 className="text-center mb-4">Gadget List</h4>
