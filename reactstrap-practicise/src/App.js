@@ -13,8 +13,7 @@ const App = () => {
         <Header />
       </Row>
       <Row style={{ height: "600px" }}>
-        <Col md={3} className="bg-light"></Col>
-        <Col md={9}>
+        <Col md={9} style={{margin: 'auto'}}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
