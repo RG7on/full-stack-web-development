@@ -7,7 +7,8 @@ import { Container, Row, Col } from "reactstrap"; //import the Reactstrap Compon
 const Home = () => {
   return (
     <>
-      <h1>Home</h1>
+    <h1>home</h1>
+
     </>
   );
 };
