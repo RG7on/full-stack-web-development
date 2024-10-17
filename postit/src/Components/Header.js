@@ -7,24 +7,25 @@ import {
 import logo from "../Images/logo-t.png";
 import { Link } from "react-router-dom";
 
-
 const Header = () => {
-
-    return (
+  return (
     <>
       <Navbar className="header">
         <Nav>
           <NavItem>
-              <Link><img src={logo} className="logo"/></Link>
+            <Link to="/"><img src={logo} className="logo" alt="Logo" /></Link>
           </NavItem>          
           <NavItem>
-              <Link to="/">Home</Link>
+            <NavLink tag={Link} to="/">Home</NavLink>
           </NavItem>
           <NavItem>
-              <Link to="/profile">Profile</Link>
+            <NavLink tag={Link} to="/profile">Profile</NavLink>
           </NavItem>
           <NavItem>
-              <Link to="/logout">Logout</Link>
+            <NavLink tag={Link} to="/register">Register</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink tag={Link} to="/logout">Logout</NavLink>
           </NavItem>
         </Nav>
       </Navbar>
