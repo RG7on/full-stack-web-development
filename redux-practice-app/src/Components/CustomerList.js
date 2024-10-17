@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeCustomer, updateCustomer } from "../store/customerSlice";
+import { Container, Table, Button, Input, Alert } from 'reactstrap';
 
 function CustomerList() {
   const customers = useSelector((state) => state.customers.customers);
@@ -33,11 +34,15 @@ function CustomerList() {
   };
 
   return (
-    <div className="container">
+    <Container>
       <h3 className="text-center mb-4">Customer List</h3>
-      <div className="table-responsive">
-        <table className="table table-striped table-hover">
-          <thead className="table-dark">
+      {customers.length === 0 ? (
+        <Alert color="info" className="text-center">
+          No customers found.
+        </Alert>
+      ) : (
+        <Table responsive striped hover>
+          <thead>
             <tr>
               <th>ID</th>
               <th>Name</th>
@@ -52,11 +57,10 @@ function CustomerList() {
                 <td>{customer.id}</td>
                 <td>
                   {editingId === customer.id ? (
-                    <input
+                    <Input
                       type="text"
                       value={editName}
                       onChange={(e) => setEditName(e.target.value)}
-                      className="form-control"
                     />
                   ) : (
                     customer.name
@@ -64,11 +68,10 @@ function CustomerList() {
                 </td>
                 <td>
                   {editingId === customer.id ? (
-                    <input
+                    <Input
                       type="email"
                       value={editEmail}
                       onChange={(e) => setEditEmail(e.target.value)}
-                      className="form-control"
                     />
                   ) : (
                     customer.email
@@ -76,11 +79,10 @@ function CustomerList() {
                 </td>
                 <td>
                   {editingId === customer.id ? (
-                    <input
+                    <Input
                       type="password"
                       value={editPassword}
                       onChange={(e) => setEditPassword(e.target.value)}
-                      className="form-control"
                       placeholder="Leave blank to keep current password"
                     />
                   ) : (
@@ -88,28 +90,28 @@ function CustomerList() {
                   )}
                 </td>
                 <td>
-                  <button
-                    className="btn btn-primary btn-sm me-2"
+                  <Button
+                    color="primary"
+                    size="sm"
+                    className="me-2"
                     onClick={() => handleUpdate(customer.id)}
                   >
                     {editingId === customer.id ? "Save" : "Update"}
-                  </button>
-                  <button
-                    className="btn btn-danger btn-sm"
+                  </Button>
+                  <Button
+                    color="danger"
+                    size="sm"
                     onClick={() => handleRemove(customer.id)}
                   >
                     Remove
-                  </button>
+                  </Button>
                 </td>
               </tr>
             ))}
           </tbody>
-        </table>
-      </div>
-      {customers.length === 0 && (
-        <p className="text-center text-muted">No customers found.</p>
+        </Table>
       )}
-    </div>
+    </Container>
   );
 }
 
